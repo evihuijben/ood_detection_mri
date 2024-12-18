@@ -274,9 +274,11 @@ def plot_overview2D(savefolder, fnames, plot_inputs, all_maps):
             img = all_maps[label][sl,:,:]
 
             if label in HIGHER_BETTER:
-                img = 1-img
+                cmap='jet_r'
+            else:
+                cmap='jet'
             
-            obj = ax[i+2].imshow(img, cmap='jet', vmin=0, vmax=1)
+            obj = ax[i+2].imshow(img, cmap=cmap, vmin=0, vmax=1)
             plt.colorbar(obj, ax=ax[i+2],fraction=0.046)
             ax[i+2].axis('off')
             

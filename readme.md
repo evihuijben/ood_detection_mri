@@ -123,7 +123,7 @@ model16x16_flags="--kl_weight 0 --vae_attention_levels 0,0,0,0,1 --vae_num_chann
 
 Then define your dataset directory and checkpoint directory (where the models will be saved) as follows:
 ```
-train_dir_flags="--data_dir_train <dataroot>/brain_train/brain_train_normalized_2D --data_dir_val <dataroot>/brain_val/brain_val_normalized_2D --checkpoint_dir  <checkpoint_dir>"
+train_dir_flags="--data_dir_train <dataroot>/brain_train/brain_train_normalized_2D --data_dir_val <dataroot>/brain_val/brain_val_normalized_2D --checkpoint_dir <checkpoint_dir>"
 ```
 
 There is an option to log your training using [Weights & Biases](https://wandb.ai/home) using the following flags. If you don't use them, the progress is not logged in Weights & Biases, but training is not affected.
@@ -131,11 +131,12 @@ There is an option to log your training using [Weights & Biases](https://wandb.a
 wandb_flags="--wandb_entity <wandb_entity> --wandb_project <wandb_project>"
 ```
 
-Train the model as follows. *Select the model flags for the desired latent space configuration as defined above*.
+Train the model as follows, but note that:
+* `model_flags` should be replaced with the desired model: `model2x2_flags`, `model4x4_flags`, `model8x8_flags`, or `model16x16_flags`
+* The dataset folder now contains only the mid 20 slices, but in case that needs to be adjusted on the fly, use `--which_slices mid_20`
 ```
-python ./train.py $model_flags train_dir_flags $wandb_flags --vae_name <given_name> 
+python ./train.py $model_flags $train_dir_flags $wandb_flags --vae_name <given_name> 
 ```
-
 
 
 ## Inference
@@ -152,7 +153,7 @@ saving_flags="--save_recons --save_snapshots --save_predictions"
 Run the inference code as follows. *Again select the correct model flags as identified during training.*
 
 ```
-python ./inference.py $model_flags $inf_dir_flags --vae_name <YYMMDD_HHMMSS_given_name>
+python ./inference.py $model_flags $inf_dir_flags $saving_flags --vae_name <YYMMDD_HHMMSS_given_name>
 ```
 
 
