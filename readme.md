@@ -1,5 +1,5 @@
 # Repository OOD detection
-This repository provides the code and resources to recreate the dataset and reproduce the results from the paper: Huijben et al. (2025) "Ensembling Reconstruction-Based Autoencoders for Out-of-Distribution Detection in Brain MRI: A Metric-Driven Approach"
+This repository provides the code and resources to recreate the dataset and reproduce the results from the paper: Huijben et al. "Enhancing Reconstruction-Based Out-of-Distribution Detection in Brain MRI with Model and Metric Ensembles"
 
 
 ## Setup
@@ -51,8 +51,8 @@ The resulting files are structures as follows:
 
 These folders are used for training (`brain_train_normalized_2D`) and for selecting the optimal epoch (based on `brain_val_normalized_2D`).
 
-### Step 3: Create the MOOD<sub>val,toy</sub> dataset.
-To create MOOD<sub>val,toy</sub> run the following:
+### Step 3: Create the MOOD<sub>art\_circ</sub> dataset.
+To create MOOD<sub>art\_circ</sub> run the following:
 
 ```
 python ./dataset/transform_val_set.py --dataroot <dataroot> --which_dataset toy
@@ -72,8 +72,8 @@ The transformed images and the ground turth labels are saves as follows:
 ```
 
 
-### Step 4: Create the MOOD<sub>transformed</sub> dataset.
-To create the local and global transformations of MOOD<sub>transformed</sub> run the following two lines:
+### Step 4: Create the MOOD<sub>art\_ext</sub> dataset.
+To create the local and global artifacts of MOOD<sub>art\_ext</sub> run the following two lines:
 
 ```
 python ./dataset/transform_val_set.py --dataroot <dataroot> --which_dataset transformed
@@ -83,7 +83,7 @@ python ./dataset/transform_val_set.py --dataroot <dataroot> --which_dataset tran
 python ./dataset/transform_val_set.py --dataroot <dataroot> --which_dataset transformed --global
 ```
 
-The dataset, consisting of the subsets toy lesion (`Circle2D`), black stripe (`BlackSlice`), patch swap (`RandomSwapAdapted`), blur (`RandomBlur`), noise (`RandomNoise`), elastic deformation (`RandomElasticDeformation`), motion (`RandomMotionAdapted2D`), bias field (`RandomBiasField`), ghosting (`RandhomGhosting`), and spike (`RandomSpikeAdapted`) are saved as follows: 
+The dataset, consisting of the subsets circular lesion (`Circle2D`), black stripe (`BlackSlice`), patch swap (`RandomSwapAdapted`), blur (`RandomBlur`), noise (`RandomNoise`), elastic deformation (`RandomElasticDeformation`), motion (`RandomMotionAdapted2D`), bias field (`RandomBiasField`), ghosting (`RandhomGhosting`), and spike (`RandomSpikeAdapted`) are saved as follows: 
 
 ```
 <dataroot>  
