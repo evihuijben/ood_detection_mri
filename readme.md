@@ -163,3 +163,10 @@ After saving the prediction maps during inference, the AUPRC can be calculated, 
 ```
 python ./calculate_auprc.py --model_names <comma_separated_model_names> --data_dir <dataroot>/brain_val/brain_val_normalized_2D_toy --results_folder <results_folder> --vae_epoch last --metric_list "contrast,LPIPS"
 ```
+
+
+## Trained model weights
+The trained model weights are available in the [v1.0.0 release](https://github.com/evihuijben/ood_detection_mri/releases/tag/v1.0.0):
+
+- **Model 8×8:** `checkpointG_last_8x8.pth`
+- **Model 2×2:** `checkpointG_last_2x2.pth`
