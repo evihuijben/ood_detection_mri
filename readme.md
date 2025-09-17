@@ -1,5 +1,8 @@
 # Repository OOD detection
-This repository provides the code and resources to recreate the dataset and reproduce the results from the paper: Huijben et al. "Enhancing Reconstruction-Based Out-of-Distribution Detection in Brain MRI with Model and Metric Ensembles"
+This repository provides the code and resources to recreate the dataset and reproduce the results from the paper: 
+
+Evi M.C. Huijben, Sina Amirrajab, Josien P.W. Pluim. "Enhancing reconstruction-based out-of-distribution detection in brain MRI with model and metric ensembles," *Computer Methods and Programs in Biomedicine*, vol. 272, p. 109045, 2025. [https://doi.org/10.1016/j.cmpb.2025.109045](https://doi.org/10.1016/j.cmpb.2025.109045)
+
 
 
 ## Setup
